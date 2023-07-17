@@ -1,16 +1,14 @@
 API = {}
 
 PerformHttpRequest('https://raw.githubusercontent.com/Nope2255/DiscordAPI/main/version', function(err, responseText, headers)
-    local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0)
+    local resourceName = GetCurrentResourceName();
+    local currentVersion = GetResourceMetadata(resourceName, 'version', 0)
 
-    if (responseText ~= nil and currentVersion ~= responseText) then
-        print('\n##########################################################')
-        print('[Discord-API] is not up to date')
-        print('should be: \'' .. responseText .. '\' and it is: \'' .. currentVersion .. '\'')
-        print('please download the latest version!')
-        print('############################################################\n')
+    if responseText ~= nil and currentVersion ~= responseText then
+        print(('[%s] is not up to date. Please update to version %s.'):format(resourceName, responseText));
+        print(('[%s] https://github.com/Nope2255/DiscordAPI.'):format(resourceName))
     end
-end, 'GET')
+end, 'GET');
 
 
 local errorCodes = {
