@@ -1,5 +1,5 @@
 Config = {
     DebugPrints = false,
-    BotToken = "MTA4Mzc1Mjg0NjU2NDAyMDI3Ng.GSoq27.Jj70kutGbgwdrfn2d1riheQSQ_b6cfX0nTxk-k",
-    GuildId = "1083069742153220237"
+    BotToken = GetConvar("discord_bot_token", "N/A"),
+    GuildId = GetConvar("discord_guild_id", "N/A"),
 }

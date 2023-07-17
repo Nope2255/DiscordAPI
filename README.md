@@ -1,4 +1,14 @@
 # DiscordAPI for FiveM
+
+### Installation
+
+Add this to your `server.cfg`:
+
+```cfg
+discord_bot_token "YOUR-BOT-TOKEN"
+discord_guild_token "YOUR-BOT-TOKEN"
+```
+
 ### Contributors      
 
 Special thank you to all these people who have helped me with this project!
