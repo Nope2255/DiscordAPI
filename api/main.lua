@@ -1,6 +1,6 @@
 API = {}
 
-PerformHttpRequest('https://github.com/Nope2255/DiscordAPI/version', function(err, responseText, headers)
+PerformHttpRequest('https://raw.githubusercontent.com/Nope2255/DiscordAPI/main/version', function(err, responseText, headers)
     local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0)
 
     if (responseText ~= nil and currentVersion ~= responseText) then
