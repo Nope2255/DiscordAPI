@@ -34,7 +34,7 @@ function API:getDiscordID(source)
     end
 end
 
-function API:sendRequestToDiscord(method, endPoint, data)
+function API:sendRequestToDiscord(method, endPoint, data, reason)
     local callbackData = nil
     local error = 404
 
@@ -42,6 +42,15 @@ function API:sendRequestToDiscord(method, endPoint, data)
         data = #data > 0 and data or "{}"
     else
         data = #data > 0 and data or ""
+    end
+
+    local headers = {
+        ["Content-Type"] = 'application/json',
+        ["Authorization"] = string.format("Bot %s", Config.discord.botToken)
+    }
+
+    if reason then
+        table.insert(headers, { ["X-Audit-Log-Reason"] = reason })
     end
 
     if Config.DebugPrints then
@@ -61,10 +70,7 @@ function API:sendRequestToDiscord(method, endPoint, data)
                 resultHeader = resultHeader
             }
         end
-    end, method, data, {
-        ["Content-Type"] = 'application/json',
-        ["Authorization"] = string.format("Bot %s", Config.BotToken)
-    })
+    end, method, data, headers)
 
     local timer = GetGameTimer()
 
