@@ -6,6 +6,7 @@ function API:GetUsername(source)
     local userId = API:getDiscordID(source)
 
     local data = API:sendRequestToDiscord("GET", string.format("users/%s", userId))
+    local resData = json.decode(data.resultData)
 
-    return data.username
+    return resData.global_name
 end

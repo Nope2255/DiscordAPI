@@ -38,12 +38,6 @@ function API:sendRequestToDiscord(method, endPoint, data)
     local callbackData = nil
     local error = 404
 
-    if method == "POST" then
-        data = #data > 0 and data or "{}"
-    else
-        data = #data > 0 and data or ""
-    end
-
     if Config.DebugPrints then
         print("(^5discord-api^0) > Trying to Request to the Discord API!")
     end
@@ -61,7 +55,7 @@ function API:sendRequestToDiscord(method, endPoint, data)
                 resultHeader = resultHeader
             }
         end
-    end, method, data, {
+    end, method, "", {
         ["Content-Type"] = 'application/json',
         ["Authorization"] = string.format("Bot %s", Config.BotToken)
     })
