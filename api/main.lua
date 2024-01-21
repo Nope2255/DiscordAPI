@@ -45,7 +45,7 @@ function API:sendRequestToDiscord(method, endPoint, data, reason)
 
     local headers = {
         ["Content-Type"] = 'application/json',
-        ["Authorization"] = string.format("Bot %s", Config.discord.botToken)
+        ["Authorization"] = string.format("Bot %s", Config.botToken)
     }
 
     if reason then
