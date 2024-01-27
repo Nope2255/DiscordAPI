@@ -6,7 +6,7 @@ Add this to your `server.cfg`:
 
 ```cfg
 discord_bot_token "YOUR-BOT-TOKEN"
-discord_guild_token "YOUR-BOT-TOKEN"
+discord_guild_id "YOUR-DISCORD-GUILD-ID"
 ```
 
 ### Contributors      
