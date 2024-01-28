@@ -7,6 +7,6 @@ function API:GetUserEmail(source)
 
     local data = API:sendRequestToDiscord("GET", string.format("users/%s", userId))
     local resData = json.decode(data.resultData)
-    print(json.encode(resData))
+    
     return resData.email
 end
